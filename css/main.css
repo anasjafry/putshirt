@@ -17,6 +17,8 @@ ul li {
   list-style: none;
 }
 
+
+
 a:hover {
 outline: none;
 text-decoration:none;
@@ -2521,3 +2523,21 @@ h2.title {
 }
 
 
+.active {
+color: red;
+}
+
+.icon {
+    border: 0px solid #64B244;
+    color: #64B244;
+    border-radius: 800px;
+    display: block;
+    float: none;
+    font-size: 16px;
+    height: 200px;
+    line-height: 200px;
+    margin: 0 auto 10px;
+    opacity: 1;
+    padding: 0;
+    width: 200px;
+}
