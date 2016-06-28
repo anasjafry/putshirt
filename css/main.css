@@ -1579,6 +1579,11 @@ h2.title {
   height: 51px;
 }
 
+#cart_items .cart_info .table.table-condensed tfoot tr {
+  height: 51px;
+  background: grey;
+}
+
 
 #cart_items .cart_info .table.table-condensed tr {
   border-bottom: 1px solid#F7F7F0
@@ -2442,16 +2447,16 @@ h2.title {
   color: #8D8D8D;
 }
 
-#contact-page .form-control {
+.form-control {
   background-color: #fff;
   border: 1px solid #ddd;
   color: #696763;
-  height: 46px;
-  padding: 6px 12px;
+  height: 30px;
+  padding: 4px 8px;
   width: 100%;
-  font-size: 16px;
-  border-radius: 4px;
-  box-shadow:inherit;
+  font-size: 14px;
+ /* border-radius: 4px; 
+  box-shadow:inherit; */
 }
 
 #contact-page #message {
@@ -2540,4 +2545,19 @@ color: red;
     opacity: 1;
     padding: 0;
     width: 200px;
+}
+
+.circlebadge {
+    border-radius: 50px;
+    background-color: #e74c3c;
+    color: white;
+    height: 15px;
+    width: 15px;
+    padding: 2px;
+    vertical-align: middle;
+    line-height: 15px;
+    margin-left: 5px;
+    display: inline-block;
+    text-align: center;
+    font: 10px Arial, sans-serif;
 }
