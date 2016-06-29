@@ -178,26 +178,60 @@ Successful pick-up of the product is subject to the following conditions being m
 				</div>
 				<div class="col-sm-6">
 					<h2 class="title text-center">Delivery Details</h2>
-					<div class="total_area" style="padding-left: 20px;">
-							<form class="contact-form row" name="contact-form" method="post" action="validate.php">
+					<div class="total_area" style="padding-left: 20px;">';
+
+							if(!isset($_SESSION['otp'])) //Accept Address
+								{
+
+					            if(isset($_SESSION['mobileErr'])){
+					            	echo '<p style="color: red;">'.$_SESSION['mobileErr'].'</p>';
+					            	unset($_SESSION['mobileErr']);
+					            }
+
+								echo'
+								<form class="contact-form row" name="contact-form" method="post" action="validate.php">
 					            <div class="form-group col-md-6">
-					                <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+					                <input type="text" name="name" class="form-control" required="required"';if(!isset($_SESSION['name'])){echo'placeholder="Name"';}else{echo'value="'.$_SESSION['name'].'"';}echo' >
 					            </div>
 					            <div class="form-group col-md-6">
-					                <input type="email" name="email" class="form-control" required="required" placeholder="Email">
+					                <input type="email" name="email" class="form-control" required="required" ';if(!isset($_SESSION['email'])){echo'placeholder="Email"';}else{echo'value="'.$_SESSION['email'].'"';}echo'>
 					            </div>
 					            <div class="form-group col-md-12">
-					                <input type="text" name="mobile" class="form-control" required="required" placeholder="Mobile">
+					                <input type="text" name="mobile" class="form-control" required="required" ';if(!isset($_SESSION['mobile'])){echo'placeholder="Mobile"';}else{echo'value="'.$_SESSION['mobile'].'"'; unset($_SESSION['mobile']);}echo'>
 					            </div>                       
 					            <div class="form-group col-md-12">
-					                <input type="text" name="address" class="form-control" required="required" placeholder="Room No., Hostel">
+					                <input type="text" name="address" class="form-control" required="required" ';if(!isset($_SESSION['address'])){echo'placeholder="Room No., Hostel"';}else{echo'value="'.$_SESSION['address'].'"';}echo'>
 					            </div>					            
 					            <div class="form-group col-md-12">
 					            	<label><input type="checkbox" name="terms" required="required" value="1"> I agree to Terms & Conditions.</label>
 					                <input type="submit" name="submit" class="btn btn-primary pull-right" value="Proceed">
+					            	<div class="g-recaptcha" data-sitekey="6LcmqyMTAAAAAFdCc2fp2d-sZD-G_1xYSTuLvI4t"></div>
 					            </div>
-					            <div class="g-recaptcha" data-sitekey="6LcmqyMTAAAAAFdCc2fp2d-sZD-G_1xYSTuLvI4t"></div>
-					        </form>
+					            </form>';
+					        }
+					      	else
+					      		//Accept OTP
+					      		{echo'
+					      		<div class="col-sm-6">
+					      		<p><strong>'.$_SESSION['name'].'</strong></br>
+					      		'.$_SESSION['address'].'</p>
+					      		</div>
+					      		<div class="col-sm-6">
+					      		<p><i class="fa fa-envelope" style="padding: 0px 5px 0px 2px;"></i>'.$_SESSION['email'].'</br>
+					      		<i class="fa fa-phone" style="padding: 0px 5px 0px 2px;"></i>'.$_SESSION['mobile'].'</p>
+					      		</div>
+
+					            <form class="contact-form row" name="otp-form" method="post" action="confirmorder.php">
+					            <div class="form-group col-md-9" style="padding-left: 30px;">
+					                <input type="text" name="otp" class="form-control" required="required" placeholder="Enter OTP">
+					            </div>
+					            <div class="form-group col-md-3">
+					                <input type="submit" name="submit" class="btn btn-primary pull-left" style="margin-top: 0px;" value="Confirm">
+					            </div>
+					            </form>';
+					            unset($_SESSION['otp']);
+					        }
+					   	echo'
 					</div>				
 				</div>
 				
